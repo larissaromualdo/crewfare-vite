@@ -1,0 +1,54 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #1D1D1F;
+}
+
+.header {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+.container {
+    display: grid;
+    gap: 0px;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.conteudo {
+    grid-column: span 9;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+.vazio {
+    background-color: rgb(29, 29, 31);
+    grid-column: span 1;
+}
+.navbar {
+    display: flex;
+    background-color: #141416;
+    grid-column: span 2;
+    padding: 20px;
+    
+}
+
+a, Link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.534);
+    font-size: 0,95em;
+    margin-top: 10px;
+    display: flex
+;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 8px;
+    transition: border-color 0.2s ease;
+    cursor: pointer;
+}
