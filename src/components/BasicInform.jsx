@@ -7,7 +7,6 @@ function BasicInform() {
         <div>
         <div className={styles.header}>Basic Information</div>
         <div className={styles.container}>
-        <Button />
         <div>
             <p>Event Type</p>
 

@@ -24,12 +24,14 @@ body {
     display: flex;
     align-items: start;
     justify-content: start;
+    padding: 20px;
 }
 
 .vazio {
     background-color: rgb(29, 29, 31);
     grid-column: span 1;
 }
+
 .navbar {
     display: flex;
     background-color: #141416;
@@ -38,10 +40,10 @@ body {
     
 }
 
-a, Link {
+a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.534);
-    font-size: 0,95em;
+    font-size: 0.95em;
     margin-top: 10px;
     display: flex
 ;
