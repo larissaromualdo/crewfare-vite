@@ -11,6 +11,7 @@ body {
   color: white;
   width: 100%;
 }
+
 .container {
     display: grid;
     gap: 0px;
@@ -24,7 +25,9 @@ body {
     display: flex;
     align-items: start;
     justify-content: start;
-    padding: 20px;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
 }
 
 .vazio {
@@ -45,8 +48,7 @@ a {
     color: rgba(255, 255, 255, 0.534);
     font-size: 0.95em;
     margin-top: 10px;
-    display: flex
-;
+    display: flex;
     align-items: center;
     border: 1px solid transparent;
     border-radius: 6px;
@@ -54,3 +56,4 @@ a {
     transition: border-color 0.2s ease;
     cursor: pointer;
 }
+

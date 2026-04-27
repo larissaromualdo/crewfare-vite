@@ -1,4 +1,4 @@
-import styles from '../components/Dates.module.css'
+import styles from './Dates.module.css'
 
 function Dates() {
      console.log("entrou na pagina")

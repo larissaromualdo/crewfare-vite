@@ -1,4 +1,4 @@
-import styles from '../components/Details.module.css'
+import styles from './Details.module.css'
 
 function Details() {
     console.log("entrou na pagina")
