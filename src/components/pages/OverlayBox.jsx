@@ -7,7 +7,7 @@ function OverlayBox() {
 
     return (
         <div>
-            <input
+            <input className={styles.checkbox}
             type='checkbox'
             checked={ativo}
             onChange={() => setAtivo(!ativo)}

@@ -36,3 +36,9 @@
     margin-top: 15px;
 }
 
+.checkbox {
+   width: 20px;
+   height: 20px;
+   accent-color: #4FF6B1;
+   border-radius: 10px;
+}

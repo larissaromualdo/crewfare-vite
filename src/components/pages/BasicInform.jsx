@@ -37,7 +37,7 @@ function BasicInform() {
                 <div className={styles.select_title}>Event Name</div>
                 <div className={styles.text_container}>
                     <input 
-                    className={styles.input_text}
+                    className={styles.text_container}
                     placeholder="Type here"
                     type="text"
                     />
@@ -49,7 +49,7 @@ function BasicInform() {
                 <div className={styles.select_title}>Banner</div>
                 <div className={styles.upload_banner}>
                 <input id="file_upload" className={styles.upload_input} type="file" />
-                <label htmlFor="file_upload" className={styles.upload_label}>
+                <label htmlFor="file_upload" className={styles.upload_icon}>
                     <div className={styles.upload_icon}>
                         <img src='/archive-upload.svg' />
                         <p>Click or drop image</p>
@@ -66,7 +66,7 @@ function BasicInform() {
         </div>
 
             <div className={styles.controls}>
-                <button className={styles.opacitybutton}>
+                <button className={styles.navbutton}>
                 <img src="/arrow-left-gray.svg" alt="left" />
                 </button>
                 <button className={styles.navbutton} onClick={() => navigate('/details')}>
@@ -75,7 +75,7 @@ function BasicInform() {
             </div>
             <div className={styles.save}>
                 <Button 
-                    text="Save" 
+                    text="Next" 
                     onClick={() => navigate('/details')}
                 />
             </div>
