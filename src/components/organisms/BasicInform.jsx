@@ -1,8 +1,8 @@
 import styles from './BasicInform.module.css'
-import Button from '../Button'
+import Button from '../atoms/Button'
 import { useNavigate } from 'react-router-dom'
-import ButtonToggle from './ButtonToggle'
-import OverlayBox from './OverlayBox'
+import ButtonToggle from '../atoms/ButtonToggle'
+import OverlayBox from '../atoms/OverlayBox'
 
 
 function BasicInform() {
@@ -37,7 +37,7 @@ function BasicInform() {
                 <div className={styles.select_title}>Event Name</div>
                 <div className={styles.text_container}>
                     <input 
-                    className={styles.text_container}
+                    className={styles.input_text}
                     placeholder="Type here"
                     type="text"
                     />

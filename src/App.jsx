@@ -1,9 +1,9 @@
 import Header from './components/Header'
 import NavBar from './components/NavBar'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import BasicInform from './components/pages/BasicInform'
-import Details from './components/pages/Details'
-import Dates from './components/pages/Dates'
+import BasicInform from '../src/components/organisms/BasicInform'
+import Details from '../src/components/organisms/Details'
+import Dates from '../src/components/organisms/Dates'
 import './index.css'
 
 function App() {

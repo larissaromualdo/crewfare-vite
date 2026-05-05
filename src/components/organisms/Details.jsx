@@ -1,11 +1,14 @@
 import styles from './Details.module.css'
-import Button from '../Button'
+import Button from '../atoms/Button'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import NumberButton from '../atoms/NumberButton'
 
 function Details() {
 
     const navigate = useNavigate()
-   
+   const [minNights, setMinNights] = useState(1)
+
     return(
         <div className={styles.open}>
             <div className={styles.header}>
@@ -19,7 +22,7 @@ function Details() {
             <div className={styles.select_title}>Link</div>
             <div className={styles.text_container}>
                 <input 
-                className={styles.text_container}
+                className={styles.input_text}
                  placeholder="Enter Link"
                 type="text"
                 />              
@@ -30,7 +33,7 @@ function Details() {
             <div className={styles.select_title}>Event Address</div>
             <div className={styles.text_container}>
                 <input 
-                className={styles.text_container}
+                className={styles.input_text}
                  placeholder="Enter Event Address"
                 type="text"
                 />              
@@ -41,7 +44,7 @@ function Details() {
             <div className={styles.select_title}>Venue Name</div>
             <div className={styles.text_container}>
                 <input 
-                className={styles.text_container}
+                className={styles.input_text}
                  placeholder="Enter Venue Name"
                 type="text"
                 />              
@@ -52,7 +55,7 @@ function Details() {
             <div className={styles.select_title}>Feature Hotels Title</div>
             <div className={styles.text_container}>
                 <input 
-                className={styles.text_container}
+                className={styles.input_text}
                  placeholder="Enter Feature Hotels Title"
                 type="text"
                 />              
@@ -61,28 +64,10 @@ function Details() {
 
             <div className={styles.select}>
             <div className={styles.select_title}>Minimum Nights</div>
-            <div className={styles.text_container}>
-                <input 
-                className={styles.text_container}
-                type="number"
-                placeholder="Enter Minimum Nights"
-                min="1"
-                step="1"
-                value="1"
-                /> 
-
-                <div>
-                <button type="button" className={styles.button_on}>
-                    <img className={styles.button_on}
-                    src='/up-arrow.svg' />
-                </button>  
-                <button type="button" className={styles.button_down}>
-                    <img className={styles.button_down}
-                     src='/arrow-down.svg' />
-                </button>   
-                </div>          
-            </div>
-            </div>
+            <NumberButton
+            value={minNights}
+            setValue={setMinNights}
+            />
         </div>
         </div>
 
@@ -100,7 +85,8 @@ function Details() {
                     onClick={() => navigate('/dates')}
                 />
             </div>
-       </div> 
+        </div> 
+        </div>
     )
 }
 

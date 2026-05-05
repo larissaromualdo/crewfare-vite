@@ -30,9 +30,9 @@ ul {
     color: #fff;
     font-family: 'Poppins';
     font-weight: bold;
-    padding: 10px;
+    padding: 7px;
     white-space: nowrap;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .circle {
@@ -54,7 +54,8 @@ ul {
     margin: 0px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    font-family: 'Poppins';
     
 }
 
