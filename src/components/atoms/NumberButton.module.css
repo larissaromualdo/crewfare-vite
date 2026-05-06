@@ -10,6 +10,7 @@
     box-sizing: border-box;
     outline: none;
     transition: border 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
 .input_text {
@@ -20,7 +21,7 @@
     border-radius: 8px;
     color: #fff;
     font-size: 14px;
-    padding: 0 12px;
+    padding: 0px;
     font-family: 'Poppins';
     box-sizing: border-box;
     outline: none;
@@ -32,7 +33,7 @@
     flex-direction: column;
     position: absolute;
     right: 0.5rem;
-    top: 71%;
+    top: 50%;
     transform: translateY(-50%);
 }
 .input_number_button_top {

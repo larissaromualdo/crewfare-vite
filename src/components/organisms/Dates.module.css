@@ -42,6 +42,7 @@
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(12, 1fr);
+    width: 100%;
 }
 
 .title_dates {
@@ -156,13 +157,15 @@
     transition: border 0.3s ease, box-shadow 0.3s ease;
     flex-direction: column;
     display: flex;
-    grid-column: span 4;
+    
 }
 
 .container_tree {
-     display: grid;
+    display: grid;
     gap: 20px;
     grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+    grid-column: span 12;
 }
 
 .item_tree {
@@ -179,7 +182,7 @@
     border-radius: 8px;
     color: #fff;
     font-size: 14px;
-    padding: 0 12px;
+    padding: 0px;
     font-family: 'Poppins';
     box-sizing: border-box;
     outline: none;
@@ -188,4 +191,27 @@
 
 .item {
     grid-column: span 11;
+}
+
+.text_container_four {
+    width: 100%;
+    height: 100%;
+    background-color: #2f2f31;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 5px;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    flex-direction: column;
+    display: flex;
+}
+
+.item_four {
+    flex-direction: column;
+    display: flex;
+    grid-column: span 4;
 }
