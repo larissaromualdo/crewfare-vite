@@ -195,13 +195,12 @@
 
 .text_container_four {
     width: 100%;
-    height: 100%;
+    height: 44px;
     background-color: #2f2f31;
     border: 1px solid #333;
     border-radius: 8px;
-    color: #fff;
     font-size: 14px;
-    padding: 0 5px;
+    padding: 0px;
     font-family: 'Poppins';
     box-sizing: border-box;
     outline: none;
@@ -214,4 +213,77 @@
     flex-direction: column;
     display: flex;
     grid-column: span 4;
+}
+
+.select_box {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #2d2d2d;
+    font-family: "Poppins";
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    padding-right: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.select_arrow {
+    position: relative;
+    bottom: 30px;
+    left: 87%;
+    pointer-events: none;
+    padding: 0px;
+}
+
+.item_one {
+    flex-direction: column;
+    display: flex;
+    grid-column: span 1;
+}
+
+.remove {
+    padding-top: 40px;
+    display: flex;
+    align-items: flex-start;
+    background: none;
+    border: none;
+    width: 28px;
+    height: 28px;
+}
+
+.add_more_button {
+    width: 26px;
+    height: 26px;
+    
+}
+
+.text_add_more_button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4FF6B1;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0px;
+    
+}
+
+.select_add {
+    display: flex;
+    grid-column: span 12;
+    gap: 8px;
+    margin-top: 35px;
+    
 }

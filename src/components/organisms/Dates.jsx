@@ -7,7 +7,13 @@ import { useState } from 'react'
 function Dates() {
      
     const navigate = useNavigate()
-     const [minNights, setMinNights] = useState(1)
+    const [minNights, setMinNights] = useState(1)
+    const [itens, setItens] = useState([1])
+
+    function deletarItem(id) {
+        const novaLista = itens.filter(item => item.id !== id);
+        setItens(novaLista);
+    }
 
 
     return(
@@ -28,7 +34,7 @@ function Dates() {
                 </div>
     
                 <div className={styles.calendar}>
-                    <div className={styles.text_container}>
+                <div className={styles.text_container}>
 
                     <div className={styles.calendar_container}>
                         <span className={styles.input_date}>MM/DD/YYYY - MM/DD/YYYY</span> 
@@ -37,7 +43,7 @@ function Dates() {
                         src= './calendar.svg'
                         />
                     </div>
-                    </div>
+                </div>
                 </div>
 
                 <div className={styles.title_dates}>
@@ -56,9 +62,17 @@ function Dates() {
                         />
                     </div>
                 </div>
-            </div>
+            
 
-            <div>ADD EVENT</div>
+            <div className={styles.select_add}>
+                <img
+                alt="add_icon"
+                className={styles.add_more_button}
+                src='./add-green.svg'
+                 /> 
+                <div className={styles.text_add_more_button}>Add Event Date Range</div>   
+            </div>
+            </div>
 
             <div className={styles.title_dates}>
                     <div className={styles.select_title}>Default Check-In & Check-Out Dates</div>
@@ -113,16 +127,46 @@ function Dates() {
                 <div className={styles.select_title}>Type</div>
             
                 <div className={styles.text_container_four}>
-                <input
-                className={styles.input_text}
-                placeholder="Fixed"
-                type="text"
+                <select className={styles.select_box}>
+                    <option value="public">Fixed</option>
+                    <option value="private">Percentage</option>
+                     </select>
+                    <span className={styles.select_arrow}>
+                    <img src='/arrow-down.svg'/>
+                    </span>
+                </div>   
+            </div>
+
+            <div className={styles.item_one}>
+                {itens.map(item => (
+                <div key={item.id} className={styles.item_one}>
+    
+                <span>{item.nome}</span>
+
+                <img 
+                alt="remove" 
+                className={styles.remove}
+                src= './remove-red.svg'
+                onClick={() => deletarItem(item.id)}
                 />
             </div>
+                ))}
+        </div>
+        </div>
+            
+           
+            <div className={styles.select_add}>
+                <img
+                alt="add_icon"
+                className={styles.add_more_button}
+                src='./add-green.svg'
+                 /> 
+                <div className={styles.text_add_more_button}>Add New Tax/Fee</div>   
             </div>
             
+
             </div>
-            </div>
+            
 
         </div>
     </div>
@@ -142,7 +186,7 @@ function Dates() {
              
        </div>
        </div>
-       </div> 
+    </div> 
        
     )
 }
