@@ -10,7 +10,7 @@ function Dates() {
     const [minNights, setMinNights] = useState(1)
     const [itens, setItens] = useState([1])
 
-    function deletarItem(id) {
+    function deleteItem(id) {
         const novaLista = itens.filter(item => item.id !== id);
         setItens(novaLista);
     }
