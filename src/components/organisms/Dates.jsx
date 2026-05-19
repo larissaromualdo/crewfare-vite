@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Button from '../atoms/Button'
 import NumberButton from '../atoms/NumberButton'
 import { useState } from 'react'
+import Calendar from '../atoms/Calendar'
+
 
 function Dates() {
      
@@ -37,7 +39,7 @@ function Dates() {
                 <div className={styles.text_container}>
 
                     <div className={styles.calendar_container}>
-                        <span className={styles.input_date}>MM/DD/YYYY - MM/DD/YYYY</span> 
+                        <Calendar />
                         <img alt="calendar" 
                         className={styles.calendar_ico}
                         src= './calendar.svg'
@@ -147,7 +149,7 @@ function Dates() {
                 alt="remove" 
                 className={styles.remove}
                 src= './remove-red.svg'
-                onClick={() => deletarItem(item.id)}
+                onClick={() => deleteItem(item.id)}
                 />
             </div>
                 ))}
