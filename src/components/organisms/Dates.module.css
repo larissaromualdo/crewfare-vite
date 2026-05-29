@@ -145,8 +145,8 @@
 .text_container_tree {
     width: 100%;
     height: 44px;
-    background-color: #2f2f31;
-    border: 1px solid #333;
+    background-color: transparent;
+    border: none;
     border-radius: 8px;
     color: #fff;
     font-size: 14px;
@@ -182,7 +182,7 @@
     border-radius: 8px;
     color: #fff;
     font-size: 14px;
-    padding: 0px;
+    padding: 10px;
     font-family: 'Poppins';
     box-sizing: border-box;
     outline: none;
@@ -196,8 +196,8 @@
 .text_container_four {
     width: 100%;
     height: 44px;
-    background-color: #2f2f31;
-    border: 1px solid #333;
+    background-color: transparent;
+    border: none;
     border-radius: 8px;
     font-size: 14px;
     padding: 0px;

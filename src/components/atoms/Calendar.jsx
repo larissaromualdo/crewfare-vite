@@ -5,14 +5,30 @@ import { useState } from 'react'
 
 function Calendar () {
 
-    const [data, setData] = useState(null)
+    const [startDate, setStartDate] = useState(null)
+    const [endDate, setEndDate] = useState(null)
+
+    const onChange = (dates) => {
+        console.log(dates)
+        const [start, end] = dates
+
+        setStartDate(start)
+        setEndDate(end)
+    }
+
+    console.log("comeco",startDate, "final",endDate)
 
     return(
-        <DatePicker className={styles.input}
-        selected={data}
-        onChange={(date) => setData(date)}
-        placeholderText='MM/DD/YYYY - MM/DD/YYYY'
+        <DatePicker 
+            className={styles.input}
+            startDate={startDate}
+            endDate={endDate}
+            onChange={onChange}
+            selectsRange
+            monthsShown={2}
+            placeholderText='MM/DD/YYYY - MM/DD/YYYY'
         />
+
     )
 }
 

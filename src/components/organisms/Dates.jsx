@@ -6,6 +6,8 @@ import { useState } from 'react'
 import Calendar from '../atoms/Calendar'
 
 
+
+
 function Dates() {
      
     const navigate = useNavigate()
@@ -40,7 +42,8 @@ function Dates() {
 
                     <div className={styles.calendar_container}>
                         <Calendar />
-                        <img alt="calendar" 
+                        <img 
+                        alt="calendar" 
                         className={styles.calendar_ico}
                         src= './calendar.svg'
                         />
@@ -57,8 +60,9 @@ function Dates() {
                 <div className={styles.text_container}>
 
                     <div className={styles.calendar_container}>
-                        <span className={styles.input_date}>MM/DD/YYYY - MM/DD/YYYY</span> 
-                        <img alt="calendar" 
+                        <Calendar />
+                        <img 
+                        alt="calendar" 
                         className={styles.calendar_ico}
                         src= './calendar.svg'
                         />
@@ -85,8 +89,9 @@ function Dates() {
                 <div className={styles.text_container}>
 
                     <div className={styles.calendar_container}>
-                        <span className={styles.input_date}>MM/DD/YYYY - MM/DD/YYYY</span> 
-                        <img alt="calendar" 
+                       <Calendar />
+                        <img 
+                        alt="calendar" 
                         className={styles.calendar_ico}
                         src= './calendar.svg'
                         />
