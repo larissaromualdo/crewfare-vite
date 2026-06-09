@@ -1,0 +1,25 @@
+.layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  width: 100%;
+  min-height: 100vh;
+}
+
+.leftSpacer {
+  grid-column: 1 / span 1;
+  background-color: #1d1d1f;
+}
+
+.navCol {
+  grid-column: 2 / span 2;
+  display: flex;
+  background-color: #141416;
+}
+
+.contentCol {
+  grid-column: 4 / span 9;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+}

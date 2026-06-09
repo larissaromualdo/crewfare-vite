@@ -12,6 +12,7 @@
     box-sizing: border-box;
     font-family: "Poppins";
     outline: none;
+    height: 44px;
     }
 
     .input::placeholder {
@@ -88,4 +89,26 @@
 
 span {
     color: white;
+}
+:global(.react-datepicker-wrapper) {
+    display: block;
+    width: 100%;
+}
+
+:global(.react-datepicker__input-container) {
+    width: 100%;
+}
+
+.error {
+    margin-top: 4px;
+    color: #e74c3c;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.input_error {
+    background-color: #3c2d2b;
+    border: 2px solid #e74c3c;
+    box-shadow: inset 0 0 0 1px #7c3831;
 }

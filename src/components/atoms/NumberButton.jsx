@@ -1,15 +1,19 @@
 import styles from './NumberButton.module.css'
+import { useFormContext } from 'react-hook-form'
 
 
-function NumberButton({ value, setValue }) {
+function NumberButton({ name, hasError }) {
+
+    const { watch, setValue } = useFormContext()
+    const value = watch(name)
 
     const incrementar = () => {
-        setValue(prev => prev + 1)
+        setValue(name, value + 1)
     }
 
     const decrementar = () => {
         if (value > 1) {
-            setValue(prev => prev - 1)
+            setValue(name, value - 1)
         }
     }
 
@@ -17,10 +21,10 @@ function NumberButton({ value, setValue }) {
     return(
         <div className={styles.text_container}>
                 <input 
-                className={styles.input_text}
+                className={`${styles.input_text} ${hasError ? styles.input_error : ''}`}
                 type="number"
                 value={value}
-                onChange={(e) => setValue(Number(e.target.value))}
+                onChange={(e) => setValue(name,Number(e.target.value))}
                 min="1"
                 step="1"
                 /> 

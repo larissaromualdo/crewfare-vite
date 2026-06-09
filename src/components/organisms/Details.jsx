@@ -1,13 +1,14 @@
 import styles from './Details.module.css'
 import Button from '../atoms/Button'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 import NumberButton from '../atoms/NumberButton'
+import { useFormContext, useFieldArray } from 'react-hook-form'
 
-function Details() {
+function Details({setStep}) {
 
-    const navigate = useNavigate()
-   const [minNights, setMinNights] = useState(1)
+   const {
+    register,
+    formState: {errors}
+   } = useFormContext()
 
     return(
         <div className={styles.open}>
@@ -22,10 +23,12 @@ function Details() {
             <div className={styles.select_title}>Link</div>
             <div className={styles.text_container}>
                 <input 
-                className={styles.input_text}
+                className={`${styles.input_text} ${errors.Link ? styles.input_error : ''}`}
                  placeholder="Enter Link"
                 type="text"
-                />              
+                {...register('Link')}
+                />      
+                <span className={styles.error}> {errors.Link?.message}</span>        
             </div>
             </div>
 
@@ -33,10 +36,12 @@ function Details() {
             <div className={styles.select_title}>Event Address</div>
             <div className={styles.text_container}>
                 <input 
-                className={styles.input_text}
+                className={`${styles.input_text} ${errors.EventAddress ? styles.input_error: ''}`}
                  placeholder="Enter Event Address"
                 type="text"
-                />              
+                {...register('EventAddress')}
+                />             
+                <span className={styles.error}>{errors.EventAddress?.message}</span> 
             </div>
             </div>
 
@@ -44,10 +49,12 @@ function Details() {
             <div className={styles.select_title}>Venue Name</div>
             <div className={styles.text_container}>
                 <input 
-                className={styles.input_text}
+                className={`${styles.input_text} ${errors.VenueName ? styles.input_error: ''}`}
                  placeholder="Enter Venue Name"
                 type="text"
-                />              
+                {...register('VenueName')}
+                />       
+                <span className={styles.error}>{errors.VenueName?.message}</span>       
             </div>
             </div>
 
@@ -55,34 +62,33 @@ function Details() {
             <div className={styles.select_title}>Feature Hotels Title</div>
             <div className={styles.text_container}>
                 <input 
-                className={styles.input_text}
+                className={`${styles.input_text} ${errors.FeatureHotelsTitle ? styles.input_error: ''}`}
                  placeholder="Enter Feature Hotels Title"
                 type="text"
-                />              
+                {...register('FeatureHotelsTitle')}
+                />   
+                <span className={styles.error}>{errors.FeatureHotelsTitle?.message}</span>           
             </div>
             </div>
 
             <div className={styles.select}>
             <div className={styles.select_title}>Minimum Nights</div>
-            <NumberButton
-            value={minNights}
-            setValue={setMinNights}
-            />
+            <NumberButton name="minimumNights"/>
         </div>
         </div>
 
         <div className={styles.controls}>
-                <button className={styles.navbutton} onClick={() => navigate('/')}>
+                <button className={styles.navbutton} onClick={() => setStep(1)}>
                 <img src="/arrow-left.svg" alt="Anterior" />
                 </button>
-                <button className={styles.navbutton} onClick={() => navigate('/dates')}>
+                <button className={styles.navbutton} onClick={() => setStep(3)}>
                 <img src="/arrow-right.svg" alt="Avançar" />
                 </button>
             </div>
             <div className={styles.save}>
                 <Button 
                     text="Next" 
-                    onClick={() => navigate('/dates')}
+                    onClick={() => setStep(3)}
                 />
             </div>
         </div> 
