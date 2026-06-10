@@ -3,7 +3,7 @@ import Button from '../atoms/Button'
 import NumberButton from '../atoms/NumberButton'
 import { useFormContext, useFieldArray } from 'react-hook-form'
 
-function Details({setStep}) {
+function Details({setStepIndex}) {
 
    const {
     register,
@@ -83,17 +83,24 @@ function Details({setStep}) {
         </div>
 
         <div className={styles.controls}>
-                <button className={styles.navbutton} onClick={() => setStep(1)}>
+                <button
+                type="button"
+                className={styles.navbutton} 
+                onClick={() => setStepIndex(0)}>
                 <img src="/arrow-left.svg" alt="Anterior" />
                 </button>
-                <button className={styles.navbutton} onClick={() => setStep(3)}>
+                
+                <button
+                type="button"
+                className={styles.navbutton} 
+                onClick={() => setStepIndex(2)}>
                 <img src="/arrow-right.svg" alt="Avançar" />
                 </button>
             </div>
             <div className={styles.save}>
                 <Button 
                     text="Next" 
-                    onClick={() => setStep(3)}
+                    onClick={() => setStepIndex(2)}
                 />
             </div>
         </div> 

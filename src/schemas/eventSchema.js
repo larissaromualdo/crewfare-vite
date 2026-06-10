@@ -1,7 +1,5 @@
 import * as yup from 'yup'
 
-console.log('SCHEMA CARREGADO')
-
 export const eventSchema = yup.object({
 
     // Basic Information
@@ -16,7 +14,7 @@ export const eventSchema = yup.object({
         eventType: yup //validação apenas de segurança.
         .string()
         .oneOf(
-          ['Public Event', 'Private Event'],
+          ['public', 'private'],
           'Please select a valid event type.'
         )
         .required('Please enter the event type.'),
@@ -75,7 +73,7 @@ export const eventSchema = yup.object({
     .array()
     .test(
     'complete-range',
-    'Please enter the bookable start and end dates.',
+    ('Please enter the bookable start and end dates.'),
     (value) => !!value?.[0] && !!value?.[1]
     )
     .required('Please specify the bookable dates.'),
@@ -85,7 +83,7 @@ export const eventSchema = yup.object({
     .array()
     .test(
     'complete-range',
-    'Please enter the checkIn start and end dates.',
+    ('Please enter the checkIn start and end dates.'),
     (value) => !!value?.[0] && !!value?.[1]
     )
     .required('Please specify the check-in/out dates.'),
@@ -113,6 +111,7 @@ export const eventSchema = yup.object({
         .required('Please enter the tax or fee type.')
     })
     )
+    .min(1, 'Please, enter at least one tax or fee.') 
     .required('Please enter at least one tax or fee.')
     .nullable()
 

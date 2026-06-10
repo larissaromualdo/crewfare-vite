@@ -3,17 +3,16 @@ import Button from '../atoms/Button'
 import NumberButton from '../atoms/NumberButton'
 import Calendar from '../atoms/Calendar'
 import { useFormContext, useFieldArray } from 'react-hook-form'
-import { useEffect } from 'react'
 
-function Dates({setStep}) {
 
-     const {
-        register,
-        control,
-        getValues,
-        formState: { errors }
-    } = useFormContext()
-     
+function Dates({setStepIndex}) {
+
+    const {
+     register,
+    control,
+    formState: { errors }
+    } = useFormContext() 
+
     const { fields, append, remove } = useFieldArray({
         control,
         name: 'taxes'
@@ -27,12 +26,6 @@ function Dates({setStep}) {
         name: 'eventDates'
     })
 
-
-    console.log(getValues())
-
-    useEffect(() => {
-        console.log(errors)
-    }, [errors])
 
     return(
     <div className={styles.conteudo}>
@@ -78,15 +71,13 @@ function Dates({setStep}) {
 
 
             <div className={styles.calendar}>
-                <div className={styles.text_container}>
-
-                    <div className={styles.calendar_container}>
+                    <div className={styles.eventList}>
                         {eventFields.map((field, index) => (
-                        <div key={field.id} className={styles.eventDate}>
+                        <div key={field.id}
+                        className={`${styles.eventDate} ${index === 0 ? styles.fixed : styles.dynamic}`}>
 
-                        <div className={styles.calendar}>
-                            <div className={styles.text_container}>
-                            <div className={styles.calendar_container}>
+                        <div  className={styles.eventCalendar}>
+                        <div className={styles.text_container}>
                         <Calendar 
                         name={`eventDates.${index}.dates`}
                         hasError={!!errors.eventDates?.[index]?.dates?.message}
@@ -100,7 +91,6 @@ function Dates({setStep}) {
                         />
                         </div>
                         </div>
-                    
 
                         {index > 0 && (
                         <button
@@ -115,13 +105,10 @@ function Dates({setStep}) {
                         </button>
                         )}
                     </div>
-                    </div>
                     ))}
                 
-                </div>
                 </div>  
 
-            <div className={styles.select_add}>
                <button
                 type="button"
                 className={styles.select_add}
@@ -135,7 +122,6 @@ function Dates({setStep}) {
                 </button>
                    
             </div>
-            </div>
 
             <div className={styles.title_dates}>
                     <div className={styles.select_title}>Default Check-In & Check-Out Dates</div>
@@ -147,8 +133,8 @@ function Dates({setStep}) {
 
                     <div className={styles.calendar_container}>
                         <Calendar name="checkInOutDates"
-                        hasError={!!errors.bookableDates?.message}
-                        errorMessage={errors.bookableDates?.message}
+                        hasError={!!errors.checkInOutDates?.message}
+                        errorMessage={errors.checkInOutDates?.message}
                          />
 
 
@@ -206,10 +192,11 @@ function Dates({setStep}) {
                     </div>
                     <button
                     type="button"
-                    className={styles.remove}
+                    className={styles.remove_tax}
                     onClick={() => remove(index)}
                     >
-                    <img src="/remove-red.svg" alt="Remove tax" />
+                    <img src="/remove-red.svg" 
+                    alt="Remove tax" />
                     </button>
                 </div>
                     ))}
@@ -233,10 +220,15 @@ function Dates({setStep}) {
             </div>
 
             <div className={styles.controls}>
-                <button className={styles.navbutton} onClick={() => setStep(2)}>
+                <button 
+                type="button"
+                className={styles.navbutton} 
+                onClick={() => setStepIndex(1)}>
                 <img src="/arrow-left.svg" alt="Anterior" />
                 </button>
-                <button className={styles.navbutton}>
+                <button 
+                className={styles.navbutton}
+                type="button">
                 <img src="/arrow-right-gray.svg" alt="right" />
                 </button>
             </div>

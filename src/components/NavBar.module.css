@@ -75,6 +75,18 @@
     background-color: #6C63FF;
 }
 
+.errorStep {
+    border: 1px solid #e74c3c;
+}
+
+.circleError {
+    background-color: #e74c3c;
+}
+
+.itemError {
+    color: #ff8a80;
+}
+
 a {
     display: flex;
     align-items: center;

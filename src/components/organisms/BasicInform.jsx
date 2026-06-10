@@ -5,7 +5,7 @@ import OverlayBox from '../atoms/OverlayBox'
 import { useFormContext } from 'react-hook-form'
 
 
-function BasicInform({setStep}) {
+function BasicInform({setStepIndex}) {
 
     const {
         register,
@@ -120,17 +120,23 @@ function BasicInform({setStep}) {
         </div>
 
             <div className={styles.controls}>
-                <button className={styles.navbutton}>
+                <button 
+                type="button"
+                className={styles.navbutton}>
                 <img src="/arrow-left-gray.svg" alt="left" />
                 </button>
-                <button className={styles.navbutton} onClick={() => setStep(2)}>
+                <button 
+                type="button"
+                className={styles.navbutton} 
+                onClick={() => setStepIndex(1)}>
                 <img src="/arrow-right.svg" alt="Avançar" />
                 </button>
             </div>
             <div className={styles.save}>
                 <Button 
-                    text="Next" 
-                    onClick={() => setStep(2)}
+                type="button"
+                text="Next" 
+                onClick={() => setStepIndex(1)}
                 />
             </div>
         </div>

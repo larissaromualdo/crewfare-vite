@@ -15,7 +15,7 @@ function Calendar ({ name, hasError, errorMessage }) {
             const [startDate, endDate ] = field.value || [null, null]
 
                 return (
-                    <div>
+                    <div className={styles.field}>
                     <DatePicker 
                     className={`${styles.input} ${hasError ? styles.input_error : ''}`}
                     startDate={startDate}
