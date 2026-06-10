@@ -14,7 +14,6 @@ function BasicInform({setStep}) {
         formState: { errors }
     } = useFormContext()
     
-     console.log('ERRO EVENT NAME:', errors.eventName)
 
     const banner = watch('banner')
     const overlayEnabled = watch('overlayEnabled')

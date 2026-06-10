@@ -5,6 +5,22 @@ console.log('SCHEMA CARREGADO')
 export const eventSchema = yup.object({
 
     // Basic Information
+        eventStatus: yup //ButtonToggle - validação apenas de segurança.
+        .string()
+        .oneOf(
+        ['enable', 'disable'],
+        'Please select a valid event status.'
+        )
+    .required(),
+
+        eventType: yup //validação apenas de segurança.
+        .string()
+        .oneOf(
+          ['Public Event', 'Private Event'],
+          'Please select a valid event type.'
+        )
+        .required('Please enter the event type.'),
+
     eventName: yup
     .string()
     .trim()
@@ -30,45 +46,74 @@ export const eventSchema = yup.object({
     .string()
     .required('Please enter the featured hotels title.'),
 
+    minimumNights: yup
+    .number()
+    .typeError('Please enter a valid number.')
+    .min(1, 'Minimum nights must be at least 1.')
+    .required('Please enter the minimum number of nights.'),
+    //validação apenas para que o usuário nao envie o formulário com valor menor que 1.
+
     //Dates
+    eventDates: yup
+    .array()
+    .of(
+    yup.object({
+      dates: yup
+        .array()
+        .test(
+          'complete-range',
+          'Please enter the start and end date for the date range.',
+          value => !!value?.[0] && !!value?.[1]
+        )
+    })
+    )
+    .min(1, 'Please add at least one date range.')
+    .required('Please add at least one date range.'),
+
+
+    bookableDates: yup
+    .array()
+    .test(
+    'complete-range',
+    'Please enter the bookable start and end dates.',
+    (value) => !!value?.[0] && !!value?.[1]
+    )
+    .required('Please specify the bookable dates.'),
+
+
+    checkInOutDates: yup
+    .array()
+    .test(
+    'complete-range',
+    'Please enter the checkIn start and end dates.',
+    (value) => !!value?.[0] && !!value?.[1]
+    )
+    .required('Please specify the check-in/out dates.'),
+
     taxes: yup
     .array()
     .of(
     yup.object({
-        name: yup
+      name: yup
         .string()
         .required('Please enter the tax or fee name.'),
 
-        amount: yup
+      amount: yup
         .number()
         .typeError('Please enter a valid number for the amount.')
         .min(1, 'Please enter a value higher than 0.')
         .required('Please specify the amount.'),
 
-        type: yup
+      type: yup
         .string()
-        .required('Please enter the tax or fee type.'),
-        })
+        .oneOf(
+          ['fixed', 'percentage'],
+          'Please select a valid tax type.'
+        )
+        .required('Please enter the tax or fee type.')
+    })
     )
     .required('Please enter at least one tax or fee.')
-    .nullable(),
-
-    
-    eventDates: yup
-        .array()
-        .of(
-          yup.object({
-            startDate: yup
-              .string()
-              .required('Please enter the start date for the date range.'),
-            endDate: yup
-              .string()
-              .required('Please enter the end date for the date range.'),
-          })
-        )
-        .min(1, 'Please add at least one date range.')
-        .required('Please add at least one date range.'),
+    .nullable()
 
     })
-    
-      

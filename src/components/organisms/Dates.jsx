@@ -3,12 +3,14 @@ import Button from '../atoms/Button'
 import NumberButton from '../atoms/NumberButton'
 import Calendar from '../atoms/Calendar'
 import { useFormContext, useFieldArray } from 'react-hook-form'
+import { useEffect } from 'react'
 
 function Dates({setStep}) {
 
      const {
         register,
         control,
+        getValues,
         formState: { errors }
     } = useFormContext()
      
@@ -24,6 +26,13 @@ function Dates({setStep}) {
         control,
         name: 'eventDates'
     })
+
+
+    console.log(getValues())
+
+    useEffect(() => {
+        console.log(errors)
+    }, [errors])
 
     return(
     <div className={styles.conteudo}>
@@ -50,6 +59,8 @@ function Dates({setStep}) {
                    
                     <Calendar 
                     name="bookableDates"
+                    hasError={!!errors.bookableDates?.message}
+                    errorMessage={errors.bookableDates?.message}
                     />
 
                     <img 
@@ -81,10 +92,6 @@ function Dates({setStep}) {
                         hasError={!!errors.eventDates?.[index]?.dates?.message}
                         errorMessage={errors.eventDates?.[index]?.dates?.message}
                         />
-
-                        <span className={styles.error}>
-                            {errors.eventDates?.[index]?.dates?.message}
-                            </span>
 
                         <img 
                         alt="calendar" 
@@ -139,16 +146,11 @@ function Dates({setStep}) {
                 <div className={styles.text_container}>
 
                     <div className={styles.calendar_container}>
-                        <Calendar name="checkInOutDates" />
+                        <Calendar name="checkInOutDates"
+                        hasError={!!errors.bookableDates?.message}
+                        errorMessage={errors.bookableDates?.message}
+                         />
 
-                      
-                        <span className={styles.error}>
-                            {errors.checkInOutDates?.startDate?.message}
-                        </span>
-
-                         <span className={styles.error}>
-                            {errors.checkInOutDates?.endDate?.message}
-                        </span>
 
                         <img 
                         alt="calendar" 
@@ -186,10 +188,9 @@ function Dates({setStep}) {
                             <NumberButton 
                             name={`taxes.${index}.amount`}
                             hasError={!!errors.taxes?.[index]?.amount}
+                            errorMessage={errors.taxes?.[index]?.amount?.message}
                             />
-                            <span className={styles.error}>
-                                {errors.taxes?.[index]?.amount?.message}
-                            </span>
+                            
                     </div>
 
                     <div className={styles.item_four}>

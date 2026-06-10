@@ -10,7 +10,7 @@ function Calendar ({ name, hasError, errorMessage }) {
     return(
         <Controller
             name={name}
-            control={control}
+            control={control} 
             render={({field}) => {
             const [startDate, endDate ] = field.value || [null, null]
 

@@ -3,7 +3,7 @@ import Details from './Details'
 import Dates from './Dates'
 import NavBar from '../NavBar'
 import Header from '../Header'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm, FormProvider} from 'react-hook-form'
 import styles from './EventForm.module.css'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -40,11 +40,8 @@ function EventForm() {
             ]
         }
     })
-    console.log(methods.formState.errors)
-
 
     const onSubmit = (data) => {
-       console.log('SUBMIT')
         console.log(data)
     }
 

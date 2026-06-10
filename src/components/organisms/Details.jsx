@@ -73,7 +73,12 @@ function Details({setStep}) {
 
             <div className={styles.select}>
             <div className={styles.select_title}>Minimum Nights</div>
-            <NumberButton name="minimumNights"/>
+            <NumberButton 
+            name="minimumNights"
+            hasError={!!errors.minimumNights}
+            errorMessage={errors.minimumNights?.message}
+            />
+
         </div>
         </div>
 
